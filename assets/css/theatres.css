@@ -1,0 +1,107 @@
+/* theatre style */
+body{
+  background-color: #ddd;
+}
+.theatre-month{
+  background-color: #d279a6;
+  margin-bottom: 7px;
+  margin-top: 7px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.theatre {
+  margin: 5px auto;
+  padding: 4px 10px;
+  box-shadow: 2px -4px 6px 4px #666;
+  background-color: #7979d2;
+}
+.theatre-title {
+  background-color: #000080;
+  color: #eeeeee;
+  vertical-align: middle;
+  text-align: center;
+  padding: 10px 3px;
+  border-radius: 5px;
+}
+.theatre-date {
+  color: #000080;
+  background-color: inherit;
+  text-decoration: node;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 7px;
+}
+.scene-block {
+  background-color: #fff;
+  color: #000;
+  padding: 3px 5px;
+  margin: 8px auto;
+  /* box-shadow: 1px 1px 1px 1px #b3b3e6; */
+  box-shadow:  inset 0 0 10px #000000;;
+}
+.scene-title {
+  background-color: #993399;
+  color: #fff;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  text-align: center;
+  padding: 3px;
+  margin: 3px;
+}
+.scene-question-title {
+  background-color: #00b359;
+  color: #ddd;
+  border-radius: 12px;
+  text-align: center;
+  padding: 3px;
+  margin: 3px;
+}
+.scene-text {
+  color: #222222;
+  padding: 3px;
+  margin: 3px;
+  border-style: inset;
+    border-width: 2px;
+}
+.scene-question-text {
+  background-color: #ffff80;
+  color: #222222;
+  border-radius: 12px;
+  padding: 3px;
+  margin: 3px;
+}
+.questions-table table tr,.questions-table table td{
+  border:solid #993399 2px;
+}
+.questions-table table td:nth-child(odd){
+  background-color: #df9fdf;
+  font-weight: bold;
+}
+.questions-table table td:nth-child(even){
+  border: inset;
+  border-width: 1px;
+}
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  text-align: center;  
+}
+
+:-ms-input-placeholder {  
+  text-align: center; 
+}
+input[type="date"],input[type="text"]{ 
+  text-align: center;
+}
+.btn-fluid{
+  width:80%;
+  text-align: center;
+  margin: auto;
+  vertical-align:middle;
+}

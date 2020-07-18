@@ -1,0 +1,43 @@
+/* this sould be the styles of the nav ::-moz-progress-bar */
+nav.bg-light{
+    background-color: #3973ac !important;
+}
+nav.bg-light li.nav-item a.nav-link{
+    color: wheat !important;
+    font-weight:bold;
+    font-size: 18px;
+}
+img.logo{
+    width: 80px;
+}
+footer.page-footer{
+    background-color: #3973ac !important;
+}
+div.jumbotron{
+    margin-bottom: 0px;
+}
+footer{
+    position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.footer-copyright, .footer-copyright a{
+    color:white;
+    font-size:16px;
+}
+.btn.btn-theatre{
+    background-color:  #3973ac !important;
+    padding:30px 20px !important;
+    width:100%;
+    font-size: 30px;
+}
+.btn.btn-add-theatre{
+    background-color: #ff6666 !important;
+}
+p,h1,h2,h3,h4,h5,a,span,div{
+    font-family: 'DroidArabicKufiRegular';
+}
+.brand-text{
+    color:#993399;
+}
