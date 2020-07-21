@@ -11,10 +11,10 @@ class theatre extends Component {
 
     render() {
         return (
-            <div className="col-md-2">
+            <div className="col-md-3">
                 <div className="theatre">
                     <div className="theatre-title">
-                        <h4>مسرح الفنون </h4>
+                        <h4> عنوان العرض </h4>
                     </div>
                     <div className="theatre-date"><span>15/5/2020</span></div>
                     <Scene />

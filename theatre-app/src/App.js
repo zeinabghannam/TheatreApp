@@ -7,12 +7,13 @@ import './css/theatres.css';
 import Header from './components/header';
 import Footer from './components/footer';
 import TheatreMonth from './components/theatreMonth';
+import AddTheatre from './components/addTheatre'
 
 function App() {
   return (
     <div className="rtl container-fluid">
      <Header />
-      <TheatreMonth />
+      <AddTheatre />
       <Footer />
     </div>
   );

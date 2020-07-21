@@ -4,7 +4,7 @@ class scene extends Component {
     render() {
         return (
             <div>
-                {/* scene block */}
+                {<theatre className="jsx"></theatre>/* scene block */}
       <div className="scene-block">
         <div className="scene-title">
           <h5>المشهد الاول</h5>
@@ -17,10 +17,6 @@ class scene extends Component {
           <table className="table table-hover table-stripped">
             <tbody><tr>
                 <td>سؤال1</td>
-                <td>نص السؤال </td>
-              </tr>
-              <tr>
-                <td> سؤال2</td>
                 <td>نص السؤال </td>
               </tr>
             </tbody></table>
