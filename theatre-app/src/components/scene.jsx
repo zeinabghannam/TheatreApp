@@ -1,30 +1,33 @@
 import React, { Component } from 'react';
 
 class scene extends Component {
-    render() {
-        return (
-            <div>
-                {<theatre className="jsx"></theatre>/* scene block */}
-      <div className="scene-block">
-        <div className="scene-title">
-          <h5>المشهد الاول</h5>
-        </div>
-        <div className=" scene-text">
-          <p>نص المشهد</p>
-        </div>
-        {/* qeustion 1 */}
-        <div className="questions-table">
-          <table className="table table-hover table-stripped">
-            <tbody><tr>
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        {/* scene block */}
+        <div className="scene-block" scene-data={this.props.scene.id}>
+          <div className="scene-title">
+            <h5> {this.props.scene.title} </h5>
+          </div>
+          <div className=" scene-text">
+            <p>  {this.props.scene.text}</p>
+          </div>
+          {/* qeustion 1 */}
+          <div className="questions-table">
+            <table className="table table-hover table-stripped">
+              <tbody><tr>
                 <td>سؤال1</td>
-                <td>نص السؤال </td>
+                <td> {this.props.scene.question} </td>
               </tr>
-            </tbody></table>
+              </tbody></table>
+          </div>
         </div>
       </div>
-            </div>
-        );
-    }
+    );
+  }
 }
 
 export default scene;

@@ -3,14 +3,14 @@ body{
   background-color: #ddd;
 }
 .theatre-month{
-  background-color: #d279a6;
+  background-color: #ffff66;
   margin-bottom: 7px;
   margin-top: 7px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 .theatre {
-  margin: 5px auto;
+  margin: 13px auto;
   padding: 4px 10px;
   box-shadow: 2px -4px 6px 4px #666;
   background-color: #7979d2;
