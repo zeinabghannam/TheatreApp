@@ -8,11 +8,13 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Theatres from './components/theatres';
 import AddTheatre from './components/addTheatre'
+import BackgroundVideo from './components/backgroundVideo'
 
 function App() {
   return (
     <div className="rtl container-fluid">
-     <Header />
+      <BackgroundVideo />
+      <Header />
       <Theatres />
       <Footer />
     </div>

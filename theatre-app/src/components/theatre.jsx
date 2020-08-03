@@ -15,10 +15,14 @@ class theatre extends Component {
         return (
             <div className="col-md-3">
                 <div className="theatre">
+                    <div className="gears-icons">
+                        <a href="javascript:;"> <span className="fa fa-trash m-10 float-left"></span> </a>
+                        <a href="javascript:;"> <span className="fa fa-edit m-10 float-left"></span></a>
+                    </div>
                     <div className="theatre-title">
                         <h4> {this.props.theatre.title} </h4>
                     </div>
-                    <div className="theatre-date"><span>{this.props.theatre.date}</span></div>
+                    <div className="theatre-date"><span className="fa fa-clock-o icon-span m-10"></span><span>{this.props.theatre.date}</span></div>
                     {sceneList}
                 </div>
             </div>

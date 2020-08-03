@@ -7,7 +7,7 @@ class hello extends Component {
             <div>
                 {/* navbar component */}
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <a className="navbar-brand" href="index.html"><img src={Logo} className="logo" alt="logo" /></a>
+                    {/* <a className="navbar-brand" href="index.html"><img src={Logo} className="logo" alt="logo" /></a> */}
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
                     </button>

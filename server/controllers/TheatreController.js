@@ -92,12 +92,12 @@ exports.postEditTheatre = (req, res, next) => {
                 theatre.scenes = _scenes
                 return theatre.save();
             })
-            .then(result=>{
+            .then(result => {
                 res.status(200).json({ message: "tehatre editted successfully" })
                 return
             })
-            .catch(err=>{res.status(500).json({ message:"ERROR EDITTING THEATRE " }); return  })
-        })
+            .catch(err => { res.status(500).json({ message: "ERROR EDITTING THEATRE " }); return })
+    })
 }
 
 //Post: Delete Theatre By Id

@@ -13,6 +13,8 @@ img.logo{
 }
 footer.page-footer{
     background-color: #3973ac !important;
+    opacity: 0.9;
+    margin: 10px;
 }
 div.jumbotron{
     margin-bottom: 0px;
@@ -22,6 +24,7 @@ footer{
   left: 0;
   bottom: 0; */
   width: 100%;
+  z-index: 1000;
 }
 .footer-copyright, .footer-copyright a{
     color:white;
@@ -41,4 +44,12 @@ p,h1,h2,h3,h4,h5,a,span,div{
 }
 .brand-text{
     color:#993399;
+}
+.navbar{
+    margin:10px !important;
+    padding: 0%;
+    opacity:0.8;
+}
+nav.bg-light li.nav-item a.nav-link{
+    opacity: 1;
 }

@@ -1,3 +1,4 @@
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 /* theatre style */
 body{
   background-color: #ddd;
@@ -14,6 +15,9 @@ body{
   padding: 4px 10px;
   box-shadow: 2px -4px 6px 4px #666;
   background-color: #7979d2;
+  position: relative;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
 }
 .theatre-title {
   background-color: #000080;
@@ -22,12 +26,14 @@ body{
   text-align: center;
   padding: 10px 3px;
   border-radius: 5px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 .theatre-date {
-  color: #000080;
+  color: #fff;
   background-color: inherit;
   text-decoration: node;
-  font-size: 14px;
+  font-size: 20px;
   font-weight: bold;
   margin-right: 7px;
 }
@@ -37,7 +43,8 @@ body{
   padding: 3px 5px;
   margin: 8px auto;
   /* box-shadow: 1px 1px 1px 1px #b3b3e6; */
-  box-shadow:  inset 0 0 10px #000000;;
+  box-shadow:  inset 0 0 10px #000000;
+  border-bottom-left-radius: 10px;
 }
 .scene-title {
   background-color: #993399;
@@ -104,4 +111,32 @@ input[type="date"],input[type="text"]{
   text-align: center;
   margin: auto;
   vertical-align:middle;
+}
+.m-10{
+  margin:10px;
+}
+.float-left{
+  float: left;
+}
+.gears-icons span, .icon-span{
+  color: #fff;
+  font-size: 25px;
+}
+.gears-icons{
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  display: block;
+}
+.theatre:hover + .gears-icons { 
+  display: block;
+}
+video#bgvid {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index:0;
 }
