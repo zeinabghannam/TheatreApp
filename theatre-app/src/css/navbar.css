@@ -16,9 +16,6 @@ footer.page-footer{
     opacity: 0.9;
     margin: 10px;
 }
-div.jumbotron{
-    margin-bottom: 0px;
-}
 footer{
     /* position: fixed;
   left: 0;
@@ -33,8 +30,9 @@ footer{
 .btn.btn-theatre{
     background-color:  #3973ac !important;
     padding:30px 20px !important;
-    width:100%;
-    font-size: 30px;
+    width: 279px  !important;
+    height: 105px !important;
+    font-size: 25px;
 }
 .btn.btn-add-theatre{
     background-color: #ff6666 !important;
@@ -52,4 +50,13 @@ p,h1,h2,h3,h4,h5,a,span,div{
 }
 nav.bg-light li.nav-item a.nav-link{
     opacity: 1;
+}
+.jumbotron.theatre-jumbo
+{
+    background-color:  #8cb3d9;
+    opacity: 0.7;
+    margin: 2% 10% !important;
+}
+.theatre-jumbo h1, .theatre-jumbo h2, .theatre-jumbo h3, .theatre-jumbo h4, .theatre-jumbo p, .theatre-jumbo i{
+color:#19334d !important;
 }

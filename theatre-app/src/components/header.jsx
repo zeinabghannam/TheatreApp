@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Logo from '../img/logo.png'
+import { Link } from 'react-router-dom';
 
 class hello extends Component {
     render() {
@@ -7,20 +8,20 @@ class hello extends Component {
             <div>
                 {/* navbar component */}
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    {/* <a className="navbar-brand" href="index.html"><img src={Logo} className="logo" alt="logo" /></a> */}
+                    {/* <Link className="navbar-brand" to="index.html"><img src={Logo} className="logo" alt="logo" /></Link> */}
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item active">
-                                <a className="nav-link" href="index.html">الرئيسية <span className="sr-only">(current)</span></a>
+                                <Link className="nav-link" to="/">الرئيسية <span className="sr-only">(current)</span></Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="theatres.html">المسارح</a>
+                                <Link className="nav-link" to="/all">المسارح</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="theatre.html">اضافة مسرح</a>
+                                <Link className="nav-link" to="/add">اضافة مسرح</Link>
                             </li>
                         </ul>
                         {/* search */}

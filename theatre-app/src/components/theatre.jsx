@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Scene from '../components/scene';
+import {Link} from 'react-router-dom'
 
 class theatre extends Component {
     constructor(props) {
@@ -16,8 +17,8 @@ class theatre extends Component {
             <div className="col-md-3">
                 <div className="theatre">
                     <div className="gears-icons">
-                        <a href="javascript:;"> <span className="fa fa-trash m-10 float-left"></span> </a>
-                        <a href="javascript:;"> <span className="fa fa-edit m-10 float-left"></span></a>
+                        <Link to="add"> <span className="fa fa-trash m-10 float-left"></span> </Link>
+                        <Link to="add"> <span className="fa fa-edit m-10 float-left"></span></Link>
                     </div>
                     <div className="theatre-title">
                         <h4> {this.props.theatre.title} </h4>
