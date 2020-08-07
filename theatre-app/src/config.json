@@ -1,0 +1,4 @@
+{
+    "NumberOfScenesPerTheatre": 10,
+    "API_EndPoint": "http://localhost:5000/theatre/"
+}

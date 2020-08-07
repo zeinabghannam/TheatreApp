@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
+import util from '../utils.js'
 
 class scene extends Component {
   constructor(props) {
     super(props);
   }
   render() {
+    let number =  parseInt(this.props.scene.number)
+    let sceneTitile = util.SCENES_TITLES[number-1]
     return (
       <div>
         {/* scene block */}
         <div className="scene-block" scene-data={this.props.scene.id}>
           <div className="scene-title">
-            <h5> {this.props.scene.title} </h5>
+            <h5> {sceneTitile} </h5>
           </div>
           <div className=" scene-text">
             <p>  {this.props.scene.text}</p>

@@ -1,36 +1,36 @@
 import React, { Component } from 'react';
 import Theatre from './theatre';
+import http from '../services/httpService'
+import config from '../config.json'
+
 
 class Theatres extends Component {
     //this is dummy data:
     state = {
-        theatres: [
-            { id: 1, title: "title", date: "13/09/2020", scenes: [{ id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }] },
-            { id: 2, title: "title", date: "13/09/2020", scenes: [{ id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }] },
-            { id: 3, title: "title", date: "13/09/2020", scenes: [{ id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }] },
-            { id: 4, title: "title", date: "13/09/2020", scenes: [{ id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }] },
-            { id: 5, title: "title", date: "13/09/2020", scenes: [{ id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }] },
-            { id: 6, title: "title", date: "13/09/2020", scenes: [{ id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }] },
-            { id: 7, title: "title", date: "13/09/2020", scenes: [{ id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }] },
-            { id: 8, title: "title", date: "13/09/2020", scenes: [{ id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }] },
-            { id: 9, title: "title", date: "13/09/2020", scenes: [{ id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }] },
-            { id: 10, title: "title", date: "13/09/2020", scenes: [{ id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }, { id: 1, title: "scene title", text: "scene text", question: "question text" }] },
-        ]
+        theatres: []
     }
     constructor(props) {
-        super(props);
+        super(props)
+        this.state = { theatres: [] }
     }
 
+    //When component is mounted:
+    async componentDidMount() {
+        const { data } = await http.get(config.API_EndPoint)
+        this.setState({ theatres: data.theatres })
+    }
     render() {
-        let theatreslist = this.state.theatres.map((theatre) =>
-            <Theatre
-                key={theatre.id}
-                theatre={theatre}
-                scenes ={theatre.scenes}
-            />);
+        var { theatres } = this.state
+
         return (
             <div className="row theatre-month">
-                {theatreslist}
+                {theatres.length ?
+                    theatres.map((theatre) =>
+                        <Theatre
+                            key={theatre.id}
+                            theatre={theatre}
+                            scenes={theatre.scenes}
+                        />) : <h1>NO THEATRES</h1>}
             </div>
         );
     }

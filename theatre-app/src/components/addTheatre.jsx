@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import AddScene from './addScene'
+import http from '../services/httpService'
+import config from '../config.json'
 
 class addTheatre extends Component {
     state = {
