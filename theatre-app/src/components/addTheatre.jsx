@@ -6,6 +6,7 @@ import config from '../config.json'
 class addTheatre extends Component {
     state = {
         theatre: {
+            theatreId: "",
             title: "", date: "",
             number1: "1", script1: "", question1: '',
             number2: "2", script2: "", question2: '',
@@ -17,22 +18,92 @@ class addTheatre extends Component {
             number8: '8', script8: '', question8: '',
             number9: '9', script9: '', question9: '',
             number10: '10', script10: '', question10: ''
-        }
+        },
+        IsEditting: null,
+        TheatreTitles: [],
+        date: ""
     }
+
+
     constructor(props) {
         super(props)
+
     }
+
+    async componentDidMount() {
+        const editting = (this.props.IsEditting === "true")
+        await this.setState({ IsEditting: editting })
+
+        //if the page is edit, then display old theatre data in the input fields.
+        if (this.state.IsEditting) {
+            document.title = "تعديل مسرح"
+            var theatreId = this.props.match.params.theatreId
+            this.handleGetEditTheatre(theatreId)
+        }
+        else {
+            document.title = "إضافة مسرح"
+            this.handleGetAddTheatre()
+        }
+    }
+    //Hangle Adding New Theatre:
+    handleAddTheatre = async () => {
+        const { data: theatre } = await http.post(config.API_EndPoint + 'add', this.state.theatre)
+        console.log(theatre)
+    }
+
+    //Hangle updating a theatre:
+    handleUpdateTheatre = async () => {
+        var theatreId = this.props.match.params.theatreId
+        var theatre = { ...this.state.theatre }
+        theatre["theatreId"] = theatreId
+        this.setState({ theatre });
+        const { data: edited_theatre } = await http.post(config.API_EndPoint + 'edit/', this.state.theatre)
+    }
+
     //Handle Form submition:
-    handleubmit = (e) => {
+    handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state.theatre)
+        //if submitting new tehatre <=>post add:
+        if (!this.state.IsEditting)
+            this.handleAddTheatre()
+        else
+            this.handleUpdateTheatre()
+            this.props.history.push("/all")
     }
+
+    //Handle Get Add Theatre:
+    handleGetAddTheatre = async () => {
+        const { data } = await http.get(config.API_EndPoint + 'add/')
+        this.setState({ TheatreTitles: data.titles })
+    }
+    //Handle Geting Edit data from the API:
+    handleGetEditTheatre = async (theatreId) => {
+        const { data } = await http.get(config.API_EndPoint + 'edit/' + theatreId)
+        //map the response object to the state.theatre:
+        const response = {
+            theatreId: data.theatre._id,
+            title: data.theatre.title,
+            date: data.theatre.date
+        }
+        // for (let i = 1; i <= data.theatre.scenes.length; i++) {
+        for (let scene of data.theatre.scenes) {
+            console.log(scene)
+            let number = scene["number"]
+            response["number" + number] = scene.number
+            response["script" + number] = scene.script
+            response["question" + number] = scene.question
+        }
+        await this.setState({ theatre: response })
+    }
+
     //handle change of the input field:
     handleChange = (e) => {
         var theatre = { ...this.state.theatre }
         theatre[e.currentTarget.name] = e.currentTarget.value
         this.setState({ theatre })
     }
+
+
     render() {
         var { theatre } = this.state
         var nums = Array.from({ length: 10 }, (v, k) => k + 1)
@@ -45,9 +116,9 @@ class addTheatre extends Component {
         return (
             // Add new theatre form
             <div className="row">
-                <div className="col-md-10 offset-md-1">
+                <div className="col-md-8 offset-md-2">
                     <div className="theatre">
-                        <form onSubmit={this.handleubmit}>
+                        <form onSubmit={this.handleSubmit}>
                             <div className="theatre-title">
                                 <input type="input" name="title" id="theatre_title" value={theatre.title} onChange={this.handleChange} placeholder="عنوان المسرح" className="form-control" />
                             </div>

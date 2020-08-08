@@ -16,7 +16,7 @@ class scene extends Component {
             <h5> {sceneTitile} </h5>
           </div>
           <div className=" scene-text">
-            <p>  {this.props.scene.text}</p>
+            <p>  {this.props.scene.script}</p>
           </div>
           {/* qeustion 1 */}
           <div className="questions-table">

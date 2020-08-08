@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import util from '../utils.js'
 
 class addScene extends Component {
 
@@ -8,6 +9,8 @@ class addScene extends Component {
 
     render() {
         var { number, theatre, onChange } = this.props
+        let num = parseInt(number)
+        let sceneTitile = util.SCENES_TITLES[num - 1]
         var sceneNo = "number" + number
         var scriptNo = "script" + number
         var questionNo = "question" + number
@@ -17,17 +20,17 @@ class addScene extends Component {
                 <div className="scene-block">
                     <div className="scene-title">
                         <input type="hidden" name={sceneNo} value={number} />
-                        <h5>المشهد الاول</h5>
+                        <h5> {sceneTitile}</h5>
                     </div>
                     <div className=" scene-text">
-                        <textarea name={scriptNo} onChange={onChange} className="form-control" placeholder="نص المشهد" rows={3} defaultValue={theatre.scriptNo} />
+                        <textarea name={scriptNo} onChange={onChange} className="form-control" placeholder="نص المشهد" rows={3} defaultValue={theatre[scriptNo]} />
                     </div>
                     {/* qeustion  */}
                     <div className="questions-table">
                         <table className="table table-hover table-stripped">
                             <tbody><tr>
                                 <td>سؤال1</td>
-                                <td><input type="input" name={questionNo} value={theatre.questionNo} onChange={onChange} placeholder=" نص السؤال" className="form-control" /></td>
+                                <td><input type="input" name={questionNo} value={theatre[questionNo]} onChange={onChange} placeholder=" نص السؤال" className="form-control" /></td>
                             </tr>
                             </tbody></table>
                     </div>

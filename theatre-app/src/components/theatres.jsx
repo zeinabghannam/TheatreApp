@@ -16,6 +16,7 @@ class Theatres extends Component {
 
     //When component is mounted:
     async componentDidMount() {
+        document.title = "المسارح المتوفرة"
         const { data } = await http.get(config.API_EndPoint)
         this.setState({ theatres: data.theatres })
     }
