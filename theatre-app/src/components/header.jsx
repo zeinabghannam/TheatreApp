@@ -23,6 +23,9 @@ class hello extends Component {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/add">اضافة مسرح</Link>
                             </li>
+                            <li className="nav-item active">
+                                <Link className="nav-link" to="/">حول التطبيق <span className="sr-only">(current)</span></Link>
+                            </li>
                         </ul>
                         {/* search */}
                         {/* <form class="form-inline my-2 my-lg-0">

@@ -70,6 +70,10 @@ body{
   border-style: inset;
     border-width: 2px;
 }
+.scene-text p{
+max-height: 50px;
+overflow-y: hidden;
+}
 .scene-question-text {
   background-color: #ffff80;
   color: #222222;
