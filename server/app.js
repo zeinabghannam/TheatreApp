@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
+var cors = require('cors')
 
 
 var indexRouter = require('./routes/index');
@@ -11,7 +12,7 @@ var TheatreRouter = require('./routes/theatre')
 var usersRouter = require('./routes/users');
 
 var app = express();
-
+app.use(cors())
 //DB:
 //const MONGODB_URI = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@10-10tv-qpyka.mongodb.net/${process.env.MONGODB_DATABASE_NAME}?retryWrites=true&w=majority`
 const MONGODB_URI = 'mongodb://localhost:27017/zaynabdb';
@@ -47,7 +48,7 @@ app.use(function (err, req, res, next) {
 });
 
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true,useUnifiedTopology: true })
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(result => {
     console.log('>> MONGODB : connected successfully!')
     console.log('****************************************************************************************************************')
