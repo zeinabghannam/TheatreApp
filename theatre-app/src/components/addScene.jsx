@@ -10,7 +10,7 @@ class addScene extends Component {
     render() {
         var { number, theatre, onChange } = this.props
         let num = parseInt(number)
-        let sceneTitile = util.SCENES_TITLES[num - 1] + "-" + util.Art_SUBCATEGORIES[number - 1]
+        let sceneTitile = util.SCENES_TITLES[num - 1] + " - " + util.Art_SUBCATEGORIES[number - 1]
         var sceneNo = "number" + number
         var scriptNo = "script" + number
         var questionNo = "question" + number
