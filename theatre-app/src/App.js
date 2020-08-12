@@ -17,7 +17,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="rtl container-fluid">
-        <BackgroundVideo />
+        {/* <BackgroundVideo /> */}
         <Header />
         {/* <Theatres /> */}
         <Switch>

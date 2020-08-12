@@ -6,8 +6,8 @@ class scene extends Component {
     super(props);
   }
   render() {
-    let number =  parseInt(this.props.scene.number)
-    let sceneTitile = util.SCENES_TITLES[number-1]
+    let number = parseInt(this.props.scene.number)
+    let sceneTitile = util.SCENES_TITLES[number - 1] + "-" + util.Art_SUBCATEGORIES[number - 1]
     return (
       <div>
         {/* scene block */}

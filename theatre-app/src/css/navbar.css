@@ -60,3 +60,6 @@ nav.bg-light li.nav-item a.nav-link{
 .theatre-jumbo h1, .theatre-jumbo h2, .theatre-jumbo h3, .theatre-jumbo h4, .theatre-jumbo p, .theatre-jumbo i{
 color:#19334d !important;
 }
+nav.bg-light li.nav-item a.nav-link.active-link{
+    color:yellow !important;
+}
