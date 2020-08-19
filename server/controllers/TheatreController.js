@@ -3,7 +3,8 @@ const Theatre = require('../models/Theatre');
 var moment = require('moment');
 const TheatreTitls = require('../services/TheatreTitles')
 var helpers = require("../helpers")
-//const Questions = require('../services/Questions')
+const Questions = require('../services/Questions.json');
+const { json } = require('express');
 
 
 //Get all theatrs
@@ -116,4 +117,19 @@ exports.deleteAllTheatres = (req, res, next) => {
     Theatre.remove()
         .then(result => { res.status(200).json({ message: result }); return })
         .catch(err => { res.status(500).json({ message: err }); return })
+}
+
+//Get All mached questions accrding to the user's input filter
+//The questions to be searched for are located, termorarly in the Questions.json file
+//These questions should be retrieved from an endpoint exposed from the questions_portal app which is a Drupal version 7 web app.
+exports.getAllMatchedQuestions = async (req, res, next) => {
+    var filter = req.query.filter
+    var result = []
+    if (!filter || filter.length <= 3)
+        return res.json({ result })
+    await Questions.forEach(item => {
+        if (item.title.includes(filter))
+            result.push({ name: item.title, id: item.nid })
+    })
+    return res.json(result)
 }

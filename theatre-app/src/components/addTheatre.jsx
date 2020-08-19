@@ -48,7 +48,7 @@ class addTheatre extends Component {
     //Hangle Adding New Theatre:
     handleAddTheatre = async () => {
         const { data: theatre } = await http.post(config.API_EndPoint + 'add', this.state.theatre)
-        console.log(theatre)
+        //console.log(theatre)
     }
 
     //Hangle updating a theatre:
@@ -68,7 +68,7 @@ class addTheatre extends Component {
             this.handleAddTheatre()
         else
             this.handleUpdateTheatre()
-            this.props.history.push("/all")
+        window.location = "all"
     }
 
     //Handle Get Add Theatre:
@@ -102,7 +102,12 @@ class addTheatre extends Component {
         theatre[e.currentTarget.name] = e.currentTarget.value
         this.setState({ theatre })
     }
-
+    UpdateSelectedQuestion = (qno, val) => {
+        var theatre = { ...this.state.theatre }
+        var questionNo = "question" + qno
+        theatre[questionNo] = val
+        this.setState({ theatre })
+    }
 
     render() {
         var { theatre } = this.state
@@ -132,6 +137,7 @@ class addTheatre extends Component {
                                         theatre={this.state.theatre}
                                         number={number}
                                         onChange={this.handleChange}
+                                        asendToParent={this.UpdateSelectedQuestion}
                                     />
                                 )
                             }

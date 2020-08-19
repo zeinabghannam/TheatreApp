@@ -5,6 +5,9 @@ var TheatreController = require('../controllers/TheatreController');
 /* GET :All theatres Available */
 router.get('/', TheatreController.getAllTheatres);
 
+/* GET :All Matched Questions accrding to the filter */
+router.get('/matched_questions', TheatreController.getAllMatchedQuestions);
+
 // /* Get: Add NEW theatre */
 router.get('/add', TheatreController.getAddTheatre);
 
