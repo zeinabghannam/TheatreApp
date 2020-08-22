@@ -125,7 +125,7 @@ exports.deleteAllTheatres = (req, res, next) => {
 exports.getAllMatchedQuestions = async (req, res, next) => {
     var filter = req.query.filter
     var result = []
-    if (!filter || filter.length <= 3)
+    if (!filter || filter.length <= 2)
         return res.json({ result })
     await Questions.forEach(item => {
         if (item.title.includes(filter))

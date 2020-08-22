@@ -29,7 +29,7 @@ class theatre extends Component {
                         <Link to={`/edit/${this.props.theatre._id}`}> <span className="fa fa-edit m-10 float-left"></span></Link>
                     </div>
                     <div className="theatre-title">
-                        <h4> {this.props.theatre.title} </h4>
+                        <h5> {this.props.theatre.title} </h5>
                     </div>
                     <div className="theatre-date"><span className="fa fa-clock-o icon-span m-10"></span><span>{this.props.theatre.date}</span></div>
                     {sceneList}

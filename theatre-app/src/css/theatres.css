@@ -117,19 +117,23 @@ input[type="date"],input[type="text"]{
   vertical-align:middle;
 }
 .m-10{
-  margin:10px;
+  margin:5px;
 }
 .float-left{
   float: left;
 }
-.gears-icons span, .icon-span{
-  color: #fff;
-  font-size: 25px;
+.gears-icons  span.fa-edit{
+  color: yellow;
+  font-size: 20px;
+}
+.gears-icons span.fa-trash{
+  color: #ff4d4d;
+  font-size: 20px;
 }
 .gears-icons{
   position: absolute;
-  top: 7px;
-  left: 7px;
+  top: 8px;
+  left: 8px;
   display: block;
 }
 .theatre:hover + .gears-icons { 
