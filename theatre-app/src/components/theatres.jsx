@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Theatre from './theatre';
 import http from '../services/httpService'
 import config from '../config.json'
+import WithLoadingIcon from './../hoc/WithLoadingIcon';
+import Loader from 'react-loader-spinner'
 
 
 class Theatres extends Component {
@@ -31,10 +33,20 @@ class Theatres extends Component {
                             key={theatre.id}
                             theatre={theatre}
                             scenes={theatre.scenes}
-                        />) : <h1>NO THEATRES</h1>}
+                        />) :
+                   <div className="margin-auto">
+                        <Loader
+                        type="Bars"
+                        color="#3973ac"
+                        height={100}
+                        width={100}
+                    // timeout={30000} 
+                    />
+                   </div>
+                }
             </div>
         );
     }
 }
 
-export default Theatres;
+export default WithLoadingIcon(Theatres);
