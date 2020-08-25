@@ -7,7 +7,6 @@ import Loader from 'react-loader-spinner'
 
 
 class Theatres extends Component {
-    //this is dummy data:
     state = {
         theatres: []
     }
@@ -19,8 +18,11 @@ class Theatres extends Component {
     //When component is mounted:
     async componentDidMount() {
         document.title = "المسارح المتوفرة"
-        const { data } = await http.get(config.API_EndPoint)
+        const { data } = await http.get(config.API_EndPoint + 'theatre/')
         this.setState({ theatres: data.theatres })
+
+        
+
     }
     render() {
         var { theatres } = this.state
@@ -34,15 +36,15 @@ class Theatres extends Component {
                             theatre={theatre}
                             scenes={theatre.scenes}
                         />) :
-                   <div className="margin-auto">
+                    <div className="margin-auto">
                         <Loader
-                        type="Bars"
-                        color="#3973ac"
-                        height={100}
-                        width={100}
-                    // timeout={30000} 
-                    />
-                   </div>
+                            type="Bars"
+                            color="#3973ac"
+                            height={100}
+                            width={100}
+                        // timeout={30000} 
+                        />
+                    </div>
                 }
             </div>
         );

@@ -8,20 +8,21 @@ class addTheatre extends Component {
         theatre: {
             theatreId: "",
             title: "", date: "",
-            number1: "1", script1: "", question1: '',
-            number2: "2", script2: "", question2: '',
-            number3: '3', script3: '', question3: '',
-            number4: '4', script4: '', question4: '',
-            number5: '5', script5: '', question5: '',
-            number6: '6', script6: '', question6: '',
-            number7: '7', script7: '', question7: '',
-            number8: '8', script8: '', question8: '',
-            number9: '9', script9: '', question9: '',
-            number10: '10', script10: '', question10: ''
+            number1: "1", script1: "", question1: '', subcategory1: '',
+            number2: "2", script2: "", question2: '', subcategory2: '',
+            number3: '3', script3: '', question3: '', subcategory3: '',
+            number4: '4', script4: '', question4: '', subcategory4: '',
+            number5: '5', script5: '', question5: '', subcategory5: '',
+            number6: '6', script6: '', question6: '', subcategory6: '',
+            number7: '7', script7: '', question7: '', subcategory7: '',
+            number8: '8', script8: '', question8: '', subcategory8: '',
+            number9: '9', script9: '', question9: '', subcategory9: '',
+            number10: '10', script10: '', question10: '', subcategory10: ''
         },
         IsEditting: null,
         TheatreTitles: [],
-        date: ""
+        date: "",
+        subCategoriesIds: []
     }
 
 
@@ -44,6 +45,10 @@ class addTheatre extends Component {
             document.title = "إضافة مسرح"
             this.handleGetAddTheatre()
         }
+        //Get subcategories ids and send it to addSence:
+        //Get theatres from database
+        const { data: subids } = await http.get(config.API_EndPoint + `question/getsubcategories?categoryParentId=${config.Arts_Category_Id}`)
+        this.setState({ subCategoriesIds: subids })
     }
     //Hangle Adding New Theatre:
     handleAddTheatre = async () => {
@@ -134,6 +139,7 @@ class addTheatre extends Component {
                                 nums.map((number) =>
                                     <AddScene
                                         key={number}
+                                        subcategories={this.state.subCategoriesIds}
                                         theatre={this.state.theatre}
                                         number={number}
                                         onChange={this.handleChange}

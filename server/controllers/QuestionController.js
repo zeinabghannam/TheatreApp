@@ -3,6 +3,7 @@ const QuestionCategory = require('../models/QuestionCategory');
 const Category = require('../models/Category');
 const CategoryHierarchy = require('../models/CategoryHierarchy');
 const _ = require('lodash')
+const CONFIG = require('../Config.json')
 
 //Get All Questions of a specific category id and subcategory id:
 exports.getAllQuestions = (req, res, nex) => {
@@ -27,6 +28,9 @@ exports.GetSubCategoriesByParentCategoryId = (req, res, next) => {
             subcategoriesIds = _.map(subcategoriesIds, 'tid')
             Category.find({ tid: { $in: subcategoriesIds } }, 'tid name -_id')
                 .then((subCategories) => {
+                    subCategories = _.sortBy(subCategories, ['tid'])
+                    subCategories = _.map(subCategories, 'tid')
+
                     return res.status(200).json(subCategories)
                 })
                 .catch((error) => { res.status(500).json(error) })
@@ -37,6 +41,8 @@ exports.GetSubCategoriesByParentCategoryId = (req, res, next) => {
 
 exports.GetQuestionsBySubcategory = (req, res, next) => {
     var { filter, id } = req.query
+    if (!filter || !id || filter.length < CONFIG.MIN_NUMBER_OF_CHARS_TO_START_SEARCHING)
+        return res.json({})
     QuestionCategory.find({ field_question_category_tid: id })
         .then(questionCategories => {
             var questionCategories = _.map(questionCategories, 'entity_id')

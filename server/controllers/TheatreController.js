@@ -53,7 +53,6 @@ exports.postAddTheatre = (req, res, nex) => {
 //Get: Edit a theatre: by id;
 exports.getEditTheatre = (req, res, nex) => {
     var theatreId = req.params.theatreId
-    console.log("Theatre id is", theatreId)
     if (!theatreId) {
         res.json({ message: "MISSING THEATRE ID!!!" })
         return
