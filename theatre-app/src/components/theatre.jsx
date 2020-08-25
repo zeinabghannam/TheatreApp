@@ -13,7 +13,8 @@ class theatre extends Component {
     handleDelete = async (theatreId) => {
         const { data } = await http.post(config.API_EndPoint + 'delete', { theatreId })
         // this.props.history.push("/all")
-        window.location = "all"
+        var x = "http://" + window.location.hostname + ":" + window.location.port + "/all"
+        window.location.assign(x)
     }
     render() {
         let sceneList = this.props.scenes.map((scene) =>

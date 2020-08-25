@@ -52,7 +52,7 @@ class addTheatre extends Component {
     }
     //Hangle Adding New Theatre:
     handleAddTheatre = async () => {
-        const { data: theatre } = await http.post(config.API_EndPoint + 'add', this.state.theatre)
+        const { data: theatre } = await http.post(config.API_EndPoint + 'theatre/add', this.state.theatre)
         //console.log(theatre)
     }
 
@@ -62,7 +62,8 @@ class addTheatre extends Component {
         var theatre = { ...this.state.theatre }
         theatre["theatreId"] = theatreId
         this.setState({ theatre });
-        const { data: edited_theatre } = await http.post(config.API_EndPoint + 'edit/', this.state.theatre)
+        const { data: edited_theatre } = await http.post(config.API_EndPoint + 'theatre/edit/', this.state.theatre)
+
     }
 
     //Handle Form submition:
@@ -73,17 +74,18 @@ class addTheatre extends Component {
             this.handleAddTheatre()
         else
             this.handleUpdateTheatre()
-        window.location = "all"
+        var x = "http://" + window.location.hostname + ":" + window.location.port + "/all"
+        window.location.assign(x)
     }
 
     //Handle Get Add Theatre:
     handleGetAddTheatre = async () => {
-        const { data } = await http.get(config.API_EndPoint + 'add/')
+        const { data } = await http.get(config.API_EndPoint + 'theatre/add/')
         this.setState({ TheatreTitles: data.titles })
     }
     //Handle Geting Edit data from the API:
     handleGetEditTheatre = async (theatreId) => {
-        const { data } = await http.get(config.API_EndPoint + 'edit/' + theatreId)
+        const { data } = await http.get(config.API_EndPoint + 'theatre/edit/' + theatreId)
         //map the response object to the state.theatre:
         const response = {
             theatreId: data.theatre._id,
