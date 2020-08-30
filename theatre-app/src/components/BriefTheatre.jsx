@@ -19,16 +19,18 @@ class BriefTheatre extends Component {
         return (
             <div className="col-md-3">
                 <div className="theatre">
-                    <div className="gears-icons">
-                        <Link to="all" onClick={() => { this.handleDelete(this.props.theatre._id) }}> <span className="fa fa-trash m-10 float-left"></span> </Link>
-                        <Link to={`/edit/${this.props.theatre._id}`}> <span className="fa fa-edit m-10 float-left"></span></Link>
-                    </div>
+
                     <div className="theatre-title">
                         <h5>
                             <Link to={`/theatre/${this.props.theatre._id}`} > {this.props.theatre.title}</Link>
                         </h5>
                     </div>
-                    <div className="theatre-date"><span className="fa fa-clock-o icon-span m-10"></span><span>{this.props.theatre.date}</span></div>
+                    <div className="theatre-date">
+                        <div className="gears-icons">
+                            <Link to="all" onClick={() => { this.handleDelete(this.props.theatre._id) }}> <span className="fa fa-trash m-10 float-left"></span> </Link>
+                            <Link to={`/edit/${this.props.theatre._id}`}> <span className="fa fa-edit m-10 float-left"></span></Link>
+                        </div>
+                        <span className="fa fa-clock-o icon-span m-10"></span><span>{this.props.theatre.date}</span></div>
                 </div>
             </div>
         );

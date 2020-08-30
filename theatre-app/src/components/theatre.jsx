@@ -28,7 +28,7 @@ class theatre extends Component {
     async componentDidMount() {
         var theatreId = this.props.match.params.theatreId
         this.handleGetTheatreDetails(theatreId)
-        
+
     }
     //Handle Geting Edit data from the API:
     handleGetTheatreDetails = async (theatreId) => {
@@ -65,16 +65,19 @@ class theatre extends Component {
                 scene={scene}
             />);
         return (
-            <div className="col-md-10 offset-md-1">
+            <div className="col-md-12">
                 <div className="theatre">
-                    <div className="gears-icons">
-                        <Link to="all" onClick={() => { this.handleDelete(this.state.theatre._id) }}> <span className="fa fa-trash m-10 float-left"></span> </Link>
-                        <Link to={`/edit/${this.state.theatre._id}`}> <span className="fa fa-edit m-10 float-left"></span></Link>
-                    </div>
                     <div className="theatre-title">
                         <h5> {this.state.theatre.title} </h5>
                     </div>
-                    <div className="theatre-date"><span className="fa fa-clock-o icon-span m-10"></span><span>{this.state.theatre.date}</span></div>
+                    <div className="theatre-date">
+                        <div className="gears-icons">
+                            <Link to="all" onClick={() => { this.handleDelete(this.state.theatre._id) }}> <span className="fa fa-trash m-10 float-left"></span> </Link>
+                            <Link to={`/edit/${this.state.theatre._id}`}> <span className="fa fa-edit m-10 float-left"></span></Link>
+                        </div>
+                        <span className="fa fa-clock-o icon-span m-10"></span>
+                        <span>{this.state.theatre.date}</span>
+                    </div>
                     {sceneList}
                 </div>
             </div>
