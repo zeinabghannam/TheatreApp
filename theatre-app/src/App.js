@@ -9,6 +9,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Theatres from './components/theatres';
 import AddTheatre from './components/addTheatre'
+import Theatre from './components/theatre'
 import Home from './components/home'
 import BackgroundVideo from './components/backgroundVideo'
 
@@ -21,9 +22,10 @@ function App() {
         <Header />
         {/* <Theatres /> */}
         <Switch>
+          <Route path="/theatre/:theatreId" render={(props) => <Theatre {...props} />} />
           <Route path="/edit/:theatreId" render={(props) => <AddTheatre IsEditting="true"  {...props} />} />
           <Route path="/add" render={(props) => <AddTheatre IsEditting="false"  {...props} />} />
-          <Route path="/all" render={(props) => <Theatres  {...props} />}  />
+          <Route path="/all" render={(props) => <Theatres  {...props} />} />
           <Route path="/" component={Home} />
         </Switch>
         <Footer />

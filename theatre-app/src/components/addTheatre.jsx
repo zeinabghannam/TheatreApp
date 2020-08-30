@@ -128,7 +128,7 @@ class addTheatre extends Component {
         return (
             // Add new theatre form
             <div className="row">
-                <div className="col-md-8 offset-md-2">
+                <div className="col-md-10 offset-md-1">
                     <div className="theatre">
                         <form onSubmit={this.handleSubmit}>
                             <div className="theatre-title">

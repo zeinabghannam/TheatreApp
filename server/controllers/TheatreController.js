@@ -10,6 +10,7 @@ const { json } = require('express');
 //Get all theatrs
 exports.getAllTheatres = (req, res, nex) => {
     Theatre.find()
+    .sort({'date':1})
         .then(theatres => {
             // console.log('THEATRES : ', theatres)
             res.status(200).json({

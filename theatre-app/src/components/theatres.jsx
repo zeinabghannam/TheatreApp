@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Theatre from './theatre';
+import BriefTheatre from './BriefTheatre';
 import http from '../services/httpService'
 import config from '../config.json'
 import WithLoadingIcon from './../hoc/WithLoadingIcon';
@@ -21,7 +21,7 @@ class Theatres extends Component {
         const { data } = await http.get(config.API_EndPoint + 'theatre/')
         this.setState({ theatres: data.theatres })
 
-        
+
 
     }
     render() {
@@ -31,7 +31,7 @@ class Theatres extends Component {
             <div className="row theatre-month">
                 {theatres.length ?
                     theatres.map((theatre) =>
-                        <Theatre
+                        <BriefTheatre
                             key={theatre.id}
                             theatre={theatre}
                             scenes={theatre.scenes}
