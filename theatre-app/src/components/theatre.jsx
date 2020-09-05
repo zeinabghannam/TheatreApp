@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Scene from '../components/scene';
-import { Link } from 'react-router-dom'
 import http from '../services/httpService'
 import config from '../config.json'
+import GearIcons from './gearIcons'
 
 class theatre extends Component {
     state = {
@@ -51,13 +51,7 @@ class theatre extends Component {
         await this.setState({ theatre: response })
         document.title = this.state.theatre.title
     }
-    //Handle on delete:
-    handleDelete = async (theatreId) => {
-        const { data } = await http.post(config.API_EndPoint + 'theatre/delete', { theatreId })
-        // this.state.history.push("/all")
-        var x = "http://" + window.location.hostname + ":" + window.location.port + "/all"
-        window.location.assign(x)
-    }
+  
     render() {
         let sceneList = this.state.theatre.scenes.map((scene) =>
             <Scene
@@ -71,10 +65,7 @@ class theatre extends Component {
                         <h5> {this.state.theatre.title} </h5>
                     </div>
                     <div className="theatre-date">
-                        <div className="gears-icons">
-                            <Link to="all" onClick={() => { this.handleDelete(this.state.theatre._id) }}> <span className="fa fa-trash m-10 float-left"></span> </Link>
-                            <Link to={`/edit/${this.state.theatre._id}`}> <span className="fa fa-edit m-10 float-left"></span></Link>
-                        </div>
+                        <GearIcons theatreId={this.state.theatre.theatreId} />
                         <span className="fa fa-clock-o icon-span m-10"></span>
                         <span>{this.state.theatre.date}</span>
                     </div>
