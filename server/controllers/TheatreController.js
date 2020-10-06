@@ -35,8 +35,8 @@ exports.getAddTheatre = (req, res, nex) => {
 //POST: Add new theatre:
 exports.postAddTheatre = (req, res, nex) => {
     // Recieve Data from submit:
-    var title = req.body.title || "sample title";
-    var date = req.body.date || "sample date";
+    var title = req.body.title || "غير مدخل"
+    var date = req.body.date || new Date.now()
     var theatre
 
     helpers.getScenesFromRequest(req, (scenes) => {
@@ -73,7 +73,9 @@ exports.getEditTheatre = (req, res, nex) => {
 
 //Post: Edit Theatre:
 exports.postEditTheatre = (req, res, next) => {
+    console.log("-----------------")
     var theatreId = req.body.theatreId
+    console.log(req.body)
     var { title, date } = req.body
     if (!theatreId) {
         res.status(404).json({ message: "TEHATRE ID NOT FOUND" })

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import GearIcons from './gearIcons'
+import config from '../config.json'
 
 class BriefTheatre extends Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class BriefTheatre extends Component {
 
                     <div className="theatre-title">
                         <h5>
-                            <Link to={`/theatre/${this.props.theatre._id}`} > {this.props.theatre.title}</Link>
+                        <Link to={`/theatre/${this.props.theatre._id}`} > {this.props.theatre.title} <span className="scenes-count">({this.props.theatre.scenes.length} {config.SCENE})</span>  </Link>
                         </h5>
                     </div>
                     <div className="theatre-date">

@@ -21,7 +21,6 @@ class addTheatre extends Component {
         },
         IsEditting: null,
         TheatreTitles: [],
-        date: "",
         subCategoriesIds: []
     }
 
@@ -58,12 +57,14 @@ class addTheatre extends Component {
 
     //Hangle updating a theatre:
     handleUpdateTheatre = async () => {
+        debugger
         var theatreId = this.props.match.params.theatreId
         var theatre = { ...this.state.theatre }
         theatre["theatreId"] = theatreId
-        this.setState({ theatre });
+        this.setState({ theatre })
+        debugger
         const { data: edited_theatre } = await http.post(config.API_EndPoint + 'theatre/edit/', this.state.theatre)
-
+        debugger
     }
 
     //Handle Form submition:
@@ -85,28 +86,29 @@ class addTheatre extends Component {
     }
     //Handle Geting Edit data from the API:
     handleGetEditTheatre = async (theatreId) => {
+        var theatre = { ...this.state.theatre }
         const { data } = await http.get(config.API_EndPoint + 'theatre/edit/' + theatreId)
         //map the response object to the state.theatre:
-        const response = {
-            theatreId: data.theatre._id,
-            title: data.theatre.title,
-            date: data.theatre.date
+
+        theatre.theatreId = data.theatre._id
+        theatre.title = data.theatre.title
+        theatre.date = data.theatre.date
+
+        if (data.theatre.scenes) {
+            for (let scene of data.theatre.scenes) {
+                let number = scene["number"]
+                theatre["number" + number] = scene.number
+                theatre["script" + number] = scene.script
+                theatre["question" + number] = scene.question
+            }
         }
-        // for (let i = 1; i <= data.theatre.scenes.length; i++) {
-        for (let scene of data.theatre.scenes) {
-            console.log(scene)
-            let number = scene["number"]
-            response["number" + number] = scene.number
-            response["script" + number] = scene.script
-            response["question" + number] = scene.question
-        }
-        await this.setState({ theatre: response })
+        await this.setState({ theatre })
     }
 
     //handle change of the input field:
     handleChange = (e) => {
         var theatre = { ...this.state.theatre }
-        theatre[e.currentTarget.name] = e.currentTarget.value
+        theatre[e.target.name] = e.target.value
         this.setState({ theatre })
     }
     UpdateSelectedQuestion = (qno, val) => {
@@ -135,7 +137,7 @@ class addTheatre extends Component {
                                 <input type="input" name="title" id="theatre_title" value={theatre.title} onChange={this.handleChange} placeholder="عنوان المسرح" className="form-control" />
                             </div>
                             <div className="theatre-date">
-                                <input type="date" name="date" id="theatre_date" value={theatre.date} onChange={this.handleChange} placeholder=" 01/09/2020" className="form-control" />
+                                <input type="date" name="date" id="theatre_date" value={theatre.date} onChange={this.handleChange} placeholder="dd-mm-yyyy" className="form-control" />
                             </div>
                             {
                                 nums.map((number) =>

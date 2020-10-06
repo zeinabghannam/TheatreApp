@@ -155,3 +155,7 @@ a, a:hover, a:focus,a:active{
   color:inherit;
   text-decoration: inherit;
 }
+.scenes-count{
+  float:left;
+  color:yellow;
+}
